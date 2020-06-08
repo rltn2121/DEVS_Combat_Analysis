@@ -40,3 +40,7 @@ myChamp.java와 transd.java를 연결한 digraph 모델.
 
 **7)	efp.java**: 
 ef.java와 enemy.java를 연결한 digraph 모델.
+
+<h3> 실행 화면 </h3>
+<img src="https://user-images.githubusercontent.com/54628612/84042648-4d210700-a9e0-11ea-8a00-746366df16ff.JPG" width="90%"></img>
+<img src="https://user-images.githubusercontent.com/54628612/84042651-4e523400-a9e0-11ea-8074-a56b690131be.JPG" width="90%"></img>
