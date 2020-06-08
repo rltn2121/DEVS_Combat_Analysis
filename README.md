@@ -20,16 +20,30 @@
 
 -	efp.java
 
-**1)	attack.java**: job.java를 수정한 모델. myChamp.java에서 전송하는 message에 쓰이며 내부에 사용한 기술의 종류(char skill)와 데미지(int damage)를 저장한다.
+**1)	attack.java**: 
 
-**2)	combat_result.java**: job.java를 수정한 모델. enemy.java에서 전송하는 message에 쓰이며 내부에 공격방법 별 누적 데미지를 저장하고 공격방법 별 사용 횟수(setSkillCount()), 데미지 점유율(setSkillShare())과 총 데미지(setTotalDamage())를 계산한다.
+job.java를 수정한 모델. myChamp.java에서 전송하는 message에 쓰이며 내부에 사용한 기술의 종류(char skill)와 데미지(int damage)를 저장한다.
 
-**3)	myChamp.java**: genr.java를 수정한 모델. out()에서 생성되는 message는 1)에서 제작한 attack을 이용한다. 20 sigma마다 기본 공격(A), 신비한 화살(Q), 비전 이동(E) 중 하나를 랜덤하게 사용한다. 정수의 흐름(W)과 정조준 일격(R)은 각각 100 sigma, 300 sigma의 재사용 대기 시간을 가지며, 재사용 대기 시간이 0이 되면 해당 스킬을 사용한다. 모든 공격의 시전 시간은 20 sigma이다. 공격을 사용하면 out()에서 attack 객체를 생성하여 enemy.java에게 전달하고, 사용한 공격의 정보(name)와 정수의 흐름(W), 정조준 일격(R)의 재사용 대기 시간(W_cooling_time, R_cooling_time)을 콘솔에 출력한다. 
+**2)	combat_result.java**: 
 
-**4)	enemy.java**: procQ.java를 수정한 모델. myChamp.java에서 전송한 공격의 공격방법 별 누적 데미지와 총 데미지를 계산한다. 기본 공격(A)은 15 time, 신비한 화살(Q)은 20 time, 정수의 흐름(W)은 25 time, 비전 이동(E)은 20 time, 정조준 일격(R)은 30 time의 계산 시간이 소요된다. deltext()에서 “passive”상태이거나 deltint()에서 !q.isEmpty()일 때 combat_result 객체를 생성하여 공격방법 별 누적 데미지, 사용 횟수, 데미지 점유율을 계산하고, out()에서 combat_result 객체를 외부로 전달하고 공격방법 별 누적 데미지, 사용 횟수, 데미지 점유율을 콘솔에 출력한다.
+job.java를 수정한 모델. enemy.java에서 전송하는 message에 쓰이며 내부에 공격방법 별 누적 데미지를 저장하고 공격방법 별 사용 횟수(setSkillCount()), 데미지 점유율(setSkillShare())과 총 데미지(setTotalDamage())를 계산한다.
 
-**5)	transd.java**: total turnaround time, average turnaround time, throughput을 계산한다.
+**3)	myChamp.java**: 
 
-**6)	ef.java**: myChamp.java와 transd.java를 연결한 digraph 모델.
+genr.java를 수정한 모델. out()에서 생성되는 message는 1)에서 제작한 attack을 이용한다. 20 sigma마다 기본 공격(A), 신비한 화살(Q), 비전 이동(E) 중 하나를 랜덤하게 사용한다. 정수의 흐름(W)과 정조준 일격(R)은 각각 100 sigma, 300 sigma의 재사용 대기 시간을 가지며, 재사용 대기 시간이 0이 되면 해당 스킬을 사용한다. 모든 공격의 시전 시간은 20 sigma이다. 공격을 사용하면 out()에서 attack 객체를 생성하여 enemy.java에게 전달하고, 사용한 공격의 정보(name)와 정수의 흐름(W), 정조준 일격(R)의 재사용 대기 시간(W_cooling_time, R_cooling_time)을 콘솔에 출력한다. 
 
-**7)	efp.java**: ef.java와 enemy.java를 연결한 digraph 모델.
+**4)	enemy.java**: 
+
+procQ.java를 수정한 모델. myChamp.java에서 전송한 공격의 공격방법 별 누적 데미지와 총 데미지를 계산한다. 기본 공격(A)은 15 time, 신비한 화살(Q)은 20 time, 정수의 흐름(W)은 25 time, 비전 이동(E)은 20 time, 정조준 일격(R)은 30 time의 계산 시간이 소요된다. deltext()에서 “passive”상태이거나 deltint()에서 !q.isEmpty()일 때 combat_result 객체를 생성하여 공격방법 별 누적 데미지, 사용 횟수, 데미지 점유율을 계산하고, out()에서 combat_result 객체를 외부로 전달하고 공격방법 별 누적 데미지, 사용 횟수, 데미지 점유율을 콘솔에 출력한다.
+
+**5)	transd.java**: 
+
+total turnaround time, average turnaround time, throughput을 계산한다.
+
+**6)	ef.java**:
+
+myChamp.java와 transd.java를 연결한 digraph 모델.
+
+**7)	efp.java**: 
+
+ef.java와 enemy.java를 연결한 digraph 모델.
